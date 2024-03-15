@@ -1,0 +1,16 @@
+.DS_Store
+Rec_slides/*/*_cache/*
+Rec_slides/*/*_files/*
+Codes/*_cache/*
+Rec_slides/*/.Rhistory
+Rec_slides/*/*.log
+Rec_slides/*/problemsets
+Rec_slides/*/pdf_slides
+Rec_slides/*/paper
+Rec_slides/*/data
+Rec_slides/*/script
+Rec_slides/*/copy
+Rec_slides/*/copy
+
+Rec_slides/*/Script_*
+Rec_slides/*/*.pdf
