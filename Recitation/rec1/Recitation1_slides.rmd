@@ -240,10 +240,10 @@ Why commodity $y$ is free from income effect?
 
 \begin{align*}
 MRS \text{ of } y \text{ for } x
-  &= \left \rvert \frac{dx}{dy} \right \rvert_{u=\bar{u}} \\
-  &= \frac{\frac{\partial u}{\partial y}}{\frac{\partial u}{\partial x}}\\
-  &= \frac{f^{\prime}(y)}{1} \\
-  &= f^{\prime}(y)
+  &= - \frac{dx}{dy} \bigg \rvert_{u=\bar{u}} \\
+  &= - \frac{\frac{\partial u}{\partial y}}{\frac{\partial u}{\partial x}}\\
+  &= - \frac{f^{\prime}(y)}{1} \\
+  &= - f^{\prime}(y)
 \end{align*}
 
 <span style="color:blue">That is, at a given level of $y$, every indifference curve will have the same slope regardless of the level of $x$.</span>
