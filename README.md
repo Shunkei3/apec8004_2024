@@ -2,6 +2,8 @@
 
 This is the repository for APEC 8004: Applied Microeconomic Analysis of Social Choice and Welfare at the University of Minnesota, where you can find slides I used in lab sessions.
 
+Week 3:([slides](https://shunkei3.github.io/apec8004_2024/Recitation/rec3/Recitation3_slides.html))
+
 <!-- ## Slides
 + Week 1: Static game of complete information - Dominant strategy equilibrium and iterated strict dominance ([slides](https://shunkei3.github.io/apec8003_2024/Rec_slides/Rec1/rec1_slides.html))
 	+ Solution ([here](https://shunkei3.github.io/apec8003_2024/Rec_slides/Rec2/solution/Recitation1_solutions.pdf))
