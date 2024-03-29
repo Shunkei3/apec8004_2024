@@ -96,7 +96,7 @@ U-max problem for a consumer with  Cobb–Douglas preferences is always interior
 
 
 .pull-right[
-```{r, echo=FALSE, out.width = "100%"}
+```{r, echo=FALSE, cache = FALSE, out.width = "90%"}
 animate(p1_annimate, fps = 20, duration = 5)
 ```
 ]
@@ -113,7 +113,6 @@ class: middle
 <br>
 
 .pull-left[
-.content-box-green[**Problem for consumer 1**]
 
 \begin{aligned}
 \max_{x_1, y_1} \quad & U_1(x_1, y_1)=x_1 y_1 \\
@@ -138,7 +137,7 @@ x_1^{\ast} = 2, \, y_1^{\ast} = \frac{2p_x}{p_y}
 
 
 .pull-right[
-```{r, echo=FALSE, out.width = "100%"}
+```{r, echo=FALSE, cache = FALSE, out.width = "100%"}
 plot_opt_p1
 ```
 ]
@@ -154,8 +153,6 @@ class: middle
 
 ## Consumer 2's demand
 
-.content-box-green[**Problem for consumer 2**]
-
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
 \textrm{s.t.} \quad & p_x x_2 + p_y x_2 = 4 p_x + 8 p_y
@@ -168,13 +165,18 @@ Linear utility functions represent <span style="color:blue">perfect substitute</
 
 &rarr; Depending on the slope of the indifference curve (i.e., price ratio), utility maximizing bundle can be corner solutions. 
 
+
+.content-box-green[**One point advice:**]
+
+If you see indifference curves which intersect with x or/and y axis, carefully think about in what condition (the price ratio) U-max solution occurs at the boundary.  
+
+
 ???
++ Unlike nice 
 + MRS (slope of the indifference curve) is -2. This means that, consumer 2 is always willing to give up 2 units of good y in exchange for additional unit of good x to remain indifferent. 
 
 ---
 class: middle
-
-.content-box-green[**Problem for consumer 2**]
 
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
@@ -182,7 +184,7 @@ class: middle
 \end{aligned}
 
 .pull-left[
-**Case I**: If $-\frac{p_x}{p_y} = -2$, or $\frac{p_x}{p_y} = 2$.
+.content-box-green[**Case I**]: If $-\frac{p_x}{p_y} = -2$, or $\frac{p_x}{p_y} = 2$.
 
 Now, the budget constraint is 
 \begin{align*}
@@ -200,16 +202,14 @@ $$(x_2^{\ast}, y_2^{\ast}) = \{(x_2, y,2); 2 x_2 + y_2 = 16, \\ 0 \leq x_2 \leq 
 ]
 
 .pull-right[
-```{r, echo=FALSE, out.width = "100%"}
+```{r, echo=FALSE, cache = FALSE, out.width = "100%"}
  # knitr::include_graphics("animation/p2_annimate_case1.gif")
-animate(p2_annimate_case1, fps = 20, duration = 5, end_pause = 5)
+animate(p2_annimate_case1, fps = 20, duration = 5, end_pause = 7)
 ```
 ]
 
 ---
 class: middle
-
-.content-box-green[**Problem for consumer 2**]
 
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
@@ -217,7 +217,7 @@ class: middle
 \end{aligned}
 
 .pull-left[
-**Case II**: If $-\frac{p_x}{p_y} < -2$, or $\frac{p_x}{p_y} > 2$
+.content-box-green[**Case II**]: If $-\frac{p_x}{p_y} < -2$, or $\frac{p_x}{p_y} > 2$
 
 The utility maximizing bundle is the y-intercept of the budget line. 
 
@@ -226,15 +226,13 @@ $$(x_2^{\ast}, y_2^{\ast})=(0, 4 \frac{p_x}{p_y} + 8)$$
 ]
 
 .pull-right[
-```{r, echo=FALSE, out.width = "100%"}
-animate(p2_annimate_case2, fps = 20, duration = 5, end_pause = 5)
+```{r, echo=FALSE, cache = FALSE, out.width = "100%"}
+animate(p2_annimate_case2, fps = 20, duration = 5, end_pause = 7)
 ```
 ]
 
 ---
 class: middle
-
-.content-box-green[**Problem for consumer 2**]
 
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
@@ -242,7 +240,7 @@ class: middle
 \end{aligned}
 
 .pull-left[
-**Case III**: If $-\frac{p_x}{p_y} > -2$, or $\frac{p_x}{p_y} < 2$
+.content-box-green[**Case III**]: If $-\frac{p_x}{p_y} > -2$, or $\frac{p_x}{p_y} < 2$
 
 The utility maximizing bundle is the x-intercept of the budget line. 
 
@@ -251,8 +249,8 @@ $$(x_2^{\ast}, y_2^{\ast})=(4 + 8 \frac{p_y}{p_x}, 0)$$
 ]
 
 .pull-right[
-```{r, echo=FALSE, out.width = "100%"}
-animate(p2_annimate_case3, duration = 5, end_pause = 3)
+```{r, echo=FALSE, cache = FALSE, out.width = "100%"}
+animate(p2_annimate_case3, fps = 20, duration = 5, end_pause = 7)
 ```
 ]
 
@@ -275,7 +273,7 @@ class: middle
 \end{align*}
 
 
-```{r, echo=FALSE, out.width = "40%"}
+```{r, echo=FALSE, cache = TRUE, out.width = "40%"}
 oc_curve
 ```
 
@@ -302,5 +300,21 @@ class: middle
 ## Utility possibilities and social welfare.
 
 An economy consists of two people and two goods, x
-and y. The aggregate endowment is 
- = (4; 9). Utility functions are
+and y. The aggregate endowment is $\Omega=(4,9)$. Utility functions are
+
+$$U_1(x_1, y_1) = \sqrt{x_1 y_1}$$
+$$U_2(x_2, y_2) = 2 \sqrt{x_2 y_2}$$
+
+a. Derive the contract curve for this economy. 
+
+b. Now obtain the utility possibilities set for the economy: 
+
+$$\upsilon = \{(U_1(x_1), U_2(x_2)) \in  \mathbb{R}| \sum_{j} x_{j}^{i} \ge \sum_{j} \omega_{j}^{i} \text{ for each } i = 1, 2\}$$
+
+Determine whether $\upsilon$ is a convex set in $(U1, U2)$-space.
+
+
+
+
+
+

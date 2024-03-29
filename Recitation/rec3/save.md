@@ -307,3 +307,10 @@ $$\begin{bmatrix}p_x \\ p_y\end{bmatrix} x_1^{\ast}(p_x, p_y) + x_2^{\ast}(p_x, 
 y_1^{\ast}(p_x, p_y) + y_2^{\ast}(p_x, p_y) - \omega_{1y} - \omega_{2y}\end{bmatrix} = 0$$
 
 
+
+\begin{align*}
+p \cdot z(p)
+&= \begin{bmatrix} p_x \\ p_y \end{bmatrix} \begin{bmatrix} z_x & z_y end{bmatrix} \\
+&= \begin{bmatrix} p_x \\ p_y \end{bmatrix} \begin{bmatrix} z_x & z_y end{bmatrix} \\
+&= 0
+\end{align*}
