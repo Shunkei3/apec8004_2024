@@ -10,7 +10,7 @@ library(gifski)
 library(gapminder)
 ```
 
-```{r}
+```{r,cache=FALSE}
 plot_theme <-
   theme(
     # axis.text.x=element_blank(),
@@ -45,7 +45,7 @@ gen_BC_dt <- function(p_x, p_y, w_x, w_y){
 
 
 ## Consumer 1's Demand
-```{r}
+```{r, cache=FALSE}
 
 ls_u1_bar <- 2:5
 
@@ -88,7 +88,7 @@ p1_u_bc_dt <- rbind(u1_dt, bc1_dt)
 ```
 
 
-```{r, eval=T}
+```{r, eval=T, cache=FALSE}
 p1_annimate <- 
   ggplot(data=p1_u_bc_dt)+
   geom_line(aes(x=x1, y=y1, group=type, color=type))+
@@ -146,7 +146,7 @@ plot_opt_p1 <-
 
 
 ## Consumer 2's Demand Case I
-```{r, cache=F, echo=F}
+```{r, cache=FALSE, echo=F}
 #/*--------------------------------*/
 #' ## Case 1
 #/*--------------------------------*/
@@ -197,7 +197,7 @@ p2_u_bc_dt_case1 <- rbind(u2_dt_case1, bc2_dt_case1)
 ```
 
 
-```{r, eval=T}
+```{r, eval=T, cache=FALSE}
 p2_annimate_case1 <- 
   ggplot(data=p2_u_bc_dt_case1)+
   geom_line(aes(x=x2, y=y2, group=type, color=type))+
@@ -222,7 +222,7 @@ p2_annimate_case1 <-
 
 ## Consumer 2's Demand Case II
 
-```{r, cache=F, echo=F}
+```{r, cache=FALSE, echo=F}
 #/*--------------------------------*/
 #' ## Case 2
 #/*--------------------------------*/
@@ -292,7 +292,7 @@ p2_annimate_case2 <-
 
 ## Consumer 2's Demand Case III
 
-```{r, cache=F, echo=F}
+```{r, cache=FALSE, echo=F}
 #/*--------------------------------*/
 #' ## Case 2
 #/*--------------------------------*/

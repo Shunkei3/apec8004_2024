@@ -23,7 +23,7 @@ class: middle
 ```{r, child = '../setup.rmd', cache = FALSE}
 ```
 
-```{r, cache=F, include=F}
+```{r, cache=FALSE, include=F}
 knit_child("PrepareResults.rmd", quiet = TRUE)
 ```
 
@@ -54,8 +54,9 @@ class: middle
 
 # Outline
 
-+ Review Assignment 1 and Assignment 2
-+ Exercise problem 
++ Review Assignment 
++ Exercise problem for utility possibilities
+
 ---
 class: middle
 
@@ -204,7 +205,7 @@ $$(x_2^{\ast}, y_2^{\ast}) = \{(x_2, y,2); 2 x_2 + y_2 = 16, \\ 0 \leq x_2 \leq 
 .pull-right[
 ```{r, echo=FALSE, cache = FALSE, out.width = "100%"}
  # knitr::include_graphics("animation/p2_annimate_case1.gif")
-animate(p2_annimate_case1, fps = 20, duration = 5, end_pause = 7)
+animate(p2_annimate_case1, fps = 20, duration = 5, end_pause = 10)
 ```
 ]
 
@@ -227,7 +228,7 @@ $$(x_2^{\ast}, y_2^{\ast})=(0, 4 \frac{p_x}{p_y} + 8)$$
 
 .pull-right[
 ```{r, echo=FALSE, cache = FALSE, out.width = "100%"}
-animate(p2_annimate_case2, fps = 20, duration = 5, end_pause = 7)
+animate(p2_annimate_case2, fps = 20, duration = 5, end_pause = 10)
 ```
 ]
 
@@ -250,14 +251,14 @@ $$(x_2^{\ast}, y_2^{\ast})=(4 + 8 \frac{p_y}{p_x}, 0)$$
 
 .pull-right[
 ```{r, echo=FALSE, cache = FALSE, out.width = "100%"}
-animate(p2_annimate_case3, fps = 20, duration = 5, end_pause = 7)
+animate(p2_annimate_case3, fps = 20, duration = 5, end_pause = 10)
 ```
 ]
 
 ---
 class: middle
 
-**Walrasian equilibrium**
+## Walrasian equilibrium
 
 \begin{align*}
 (x_1^{\ast}, y_1^{\ast}) = (2, 2 \frac{p_x}{p_y})
@@ -279,6 +280,8 @@ oc_curve
 
 ---
 class: middle
+
+## Walras's law (important!)
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-2.ph2.mt2[
 **Walras's law (strong form)**
@@ -309,7 +312,7 @@ a. Derive the contract curve for this economy.
 
 b. Now obtain the utility possibilities set for the economy: 
 
-$$\upsilon = \{(U_1(x_1), U_2(x_2)) \in  \mathbb{R}| \sum_{j} x_{j}^{i} \ge \sum_{j} \omega_{j}^{i} \text{ for each } i = 1, 2\}$$
+$$\upsilon = \{(U_1(\mathbf{x_1}), U_2(\mathbf{x_2})) \in  \mathbb{R}^{2}| \sum_{j} \mathbf{x}_{j}^{i} \ge \sum_{j} \omega_{j}^{i} \text{ for each } i = 1, 2\}$$
 
 Determine whether $\upsilon$ is a convex set in $(U1, U2)$-space.
 
