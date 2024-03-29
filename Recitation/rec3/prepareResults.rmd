@@ -1,0 +1,389 @@
+```{r, include=F}
+library(here)
+library(data.table)
+library(foreach)
+library(ggplot2)
+library(dplyr)
+library(gganimate)
+library(ggtext)
+library(gifski)
+library(gapminder)
+```
+
+```{r, include=F}
+plot_theme <-
+  theme(
+    # axis.text.x=element_blank(),
+    axis.ticks.x=element_blank(),
+    # axis.text.y=element_blank(),
+    axis.ticks.y=element_blank(),
+    legend.title=element_blank(),
+    legend.position="bottom",
+    plot.title = element_text(hjust = 0.5)
+    )
+```
+
+```{r}
+# /*===== BC line =====*/
+gen_BC_dt <- function(p_x, p_y, w_x, w_y){
+  x_intc <- w_x + p_y/p_x * w_y
+  y_intc <- p_x/p_y * w_x + w_y
+
+  budget_dt <-
+    data.table(
+      x = seq(0, x_intc, by = 0.1),
+      type = "Budget constraint"
+    ) %>%
+    .[, y := - p_x/p_y * x +  p_x/p_y * w_x + w_y]
+
+  return(budget_dt)
+}
+
+```
+
+# HW2, Problem2
+
+
+## Consumer 1's Demand
+```{r}
+
+ls_u1_bar <- 2:5
+
+# /*===== BC data =====*/
+bc1_dt <- 
+  foreach(i = 1:length(ls_u1_bar), .combine="rbind") %do%{
+    temp_bc1_dt <- 
+      gen_BC_dt(
+        p_x=1, p_y=1, w_x=4, w_y=0
+      ) %>%
+      .[,`:=`(
+        time = i,
+        u_bar = ls_u1_bar[i]
+        )] %>%
+      setnames(c("x", "y"), c("x1", "y1")) 
+    return(temp_bc1_dt)
+}
+
+# /*===== IC data =====*/
+u1_dt <- 
+  foreach(i = 1:length(ls_u1_bar), .combine="rbind") %do%{
+    u_bar <- ls_u1_bar[[i]]
+
+    temp_u1_dt <- 
+      data.table(
+        x1 = seq(0, max(bc1_dt$x1) + 0.5, by=0.05),
+        type = "Indifference curve",
+        time = i,
+        u_bar = ls_u1_bar[i]
+      ) %>%
+      .[, y1 := u_bar/x1] %>%
+      .[y1 <= max(bc1_dt$x1) + 1,]
+
+    return(temp_u1_dt)
+}
+
+p1_u_bc_dt <- rbind(u1_dt, bc1_dt)
+
+# plot(bc1_dt$x1, bc1_dt$y1)
+```
+
+
+```{r, eval=T}
+p1_annimate <- 
+  ggplot(data=p1_u_bc_dt)+
+  geom_line(aes(x=x1, y=y1, group=type, color=type))+
+  # --- initial endowment --- #
+  annotate("point", x = 4, y = 0, colour = "red", size=2)+
+  # annotate("text", x = 4.1, y = 0, label = expression(omega["1"]))+
+  # --- animation --- #
+  theme_bw() +
+  labs(
+    title = "Where is the utility maximizing bundle?",
+    x=bquote(x[2]), y=bquote(y[2])
+  )+
+  plot_theme+
+  transition_time(time) +
+  ease_aes('linear')
+
+# anim_save(
+#   here("Gitcontrolled/Recitation/rec3/animation/p1_annimate.gif"), 
+#     p1_annimate
+# )
+```
+
+```{r}
+opt_p1_u_bc_dt <- p1_u_bc_dt[u_bar==4,]
+
+plot_opt_p1 <- 
+  ggplot(data=opt_p1_u_bc_dt)+
+  geom_line(aes(x=x1, y=y1, group=type, color=type))+
+  # --- initial endowment --- #
+  annotate("point", x = 4, y = 0, colour = "red", size=2)+
+  annotate("text", x = 4.2, y = 0.2, label = expression(omega["1"]))+
+  theme_bw() +
+  labs(
+    title = "Where is the utility maximizing bundle?",
+    x=bquote(x[2]), y=bquote(y[2])
+  )+
+  xlim(0,5)+ ylim(0,5)+
+  plot_theme
+
+## Consumer 2's problem
+
+### Case I
+
+```
+
+
+
+## Consumer 2's Demand Case I
+```{r, cache=F, echo=F}
+#/*--------------------------------*/
+#' ## Case 1
+#/*--------------------------------*/
+
+# /*===== Budget constraint =====*/
+ls_u2_bar_case1 <- 12:16
+
+# /*===== BC data =====*/
+bc2_dt_case1 <- 
+  foreach(i = 1:length(ls_u2_bar_case1), .combine="rbind") %do%{
+    temp_dt <- 
+      gen_BC_dt(
+        p_x=2, p_y=1, w_x=4, w_y=8
+      ) %>%
+      .[,`:=`(
+        time = i,
+        u_bar = ls_u2_bar_case1[i]
+        )] %>%
+      setnames(c("x", "y"), c("x2", "y2")) %>%
+      .[y2 >= 0]
+    return(temp_dt)
+}
+
+
+# /*===== IC data =====*/
+u2_dt_case1 <- 
+  foreach(i = 1:length(ls_u2_bar_case1), .combine="rbind") %do%{
+    # i=1
+    u_bar <- ls_u2_bar_case1[[i]]
+
+    temp_dt <- 
+      data.table(
+        x2 = seq(0, max(bc2_dt_case1$x2) + 0.5, by=0.05),
+        type = "Indifference curve",
+        time = i,
+        u_bar = ls_u2_bar_case1[i]
+      ) %>%
+      .[, y2 := ls_u2_bar_case1[i] - 2*x2] %>%
+      .[y2 >=0,]
+
+    return(temp_dt)
+}
+
+p2_u_bc_dt_case1 <- rbind(u2_dt_case1, bc2_dt_case1)
+
+# ggplot(p2_u_bc_dt_case1)+
+#   geom_line(aes(x=x2, y=y2, group=interaction(type, time)))
+```
+
+
+```{r, eval=T}
+p2_annimate_case1 <- 
+  ggplot(data=p2_u_bc_dt_case1)+
+  geom_line(aes(x=x2, y=y2, group=type, color=type))+
+  # --- initial endowment --- #
+  annotate("point", x = 4, y = 8, colour = "red", size=2)+
+  # annotate("text", x = 4.1, y = 0, label = expression(omega["1"]))+
+  # --- animation --- #
+  theme_bw() +
+  labs(
+    title = "Where are the utility maximizing bundles?",
+    x=bquote(x[2]), y=bquote(y[2])
+  )+
+  plot_theme+
+  transition_time(time) +
+  ease_aes('linear')
+
+# anim_save(
+#   here("Gitcontrolled/Recitation/rec3/animation/p2_annimate_case1.gif"), 
+#     p2_annimate
+# )
+```
+
+## Consumer 2's Demand Case II
+
+```{r, cache=F, echo=F}
+#/*--------------------------------*/
+#' ## Case 2
+#/*--------------------------------*/
+
+# /*===== Budget constraint =====*/
+ls_u2_bar_case2 <- 16:20
+
+# /*===== BC data =====*/
+bc2_dt_case2 <- 
+  foreach(i = 1:length(ls_u2_bar_case2), .combine="rbind") %do%{
+    temp_dt <- 
+      gen_BC_dt(
+        p_x=3, p_y=1, w_x=4, w_y=8
+      ) %>%
+      .[,`:=`(
+        time = i,
+        u_bar = ls_u2_bar_case2[i]
+        )] %>%
+      setnames(c("x", "y"), c("x2", "y2")) %>%
+      .[y2 >= 0]
+    return(temp_dt)
+}
+
+
+# /*===== IC data =====*/
+u2_dt_case2 <- 
+  foreach(i = 1:length(ls_u2_bar_case2), .combine="rbind") %do%{
+    # i=1
+    u_bar <- ls_u2_bar_case2[[i]]
+
+    temp_dt <- 
+      data.table(
+        x2 = seq(0, max(bc2_dt_case2$x2) + 0.5, by=0.05),
+        type = "Indifference curve",
+        time = i,
+        u_bar = ls_u2_bar_case2[i]
+      ) %>%
+      .[, y2 := ls_u2_bar_case2[i] - 2*x2] %>%
+      .[y2 >=0,]
+
+    return(temp_dt)
+}
+
+p2_u_bc_dt_case2 <- rbind(u2_dt_case2, bc2_dt_case2)
+
+# ggplot(p2_u_bc_dt_case2)+
+#   geom_line(aes(x=x2, y=y2, group=interaction(type, time)))
+
+
+p2_annimate_case2 <- 
+  ggplot(data=p2_u_bc_dt_case2)+
+  geom_line(aes(x=x2, y=y2, group=type, color=type))+
+  # --- initial endowment --- #
+  annotate("point", x = 4, y = 8, colour = "red", size=2)+
+  # annotate("text", x = 4.1, y = 0, label = expression(omega["1"]))+
+  # --- animation --- #
+  theme_bw() +
+  labs(
+    title = "Where are the utility maximizing bundles?",
+    x=bquote(x[2]), y=bquote(y[2])
+  )+
+  plot_theme+
+  transition_time(time) +
+  ease_aes('linear')
+```
+
+
+## Consumer 2's Demand Case III
+
+```{r, cache=F, echo=F}
+#/*--------------------------------*/
+#' ## Case 2
+#/*--------------------------------*/
+
+# /*===== Budget constraint =====*/
+ls_u2_bar_case3 <- 20:24
+
+# /*===== BC data =====*/
+bc2_dt_case3 <- 
+  foreach(i = 1:length(ls_u2_bar_case3), .combine="rbind") %do%{
+    temp_dt <- 
+      gen_BC_dt(
+        p_x=1, p_y=1, w_x=4, w_y=8
+      ) %>%
+      .[,`:=`(
+        time = i,
+        u_bar = ls_u2_bar_case3[i]
+        )] %>%
+      setnames(c("x", "y"), c("x2", "y2")) %>%
+      .[y2 >= 0]
+    return(temp_dt)
+}
+
+
+# /*===== IC data =====*/
+u2_dt_case3 <- 
+  foreach(i = 1:length(ls_u2_bar_case3), .combine="rbind") %do%{
+    # i=1
+    u_bar <- ls_u2_bar_case3[[i]]
+
+    temp_dt <- 
+      data.table(
+        x2 = seq(0, max(bc2_dt_case3$x2) + 0.5, by=0.05),
+        type = "Indifference curve",
+        time = i,
+        u_bar = ls_u2_bar_case3[i]
+      ) %>%
+      .[, y2 := ls_u2_bar_case3[i] - 2*x2] %>%
+      .[y2 >=0,]
+
+    return(temp_dt)
+}
+
+p2_u_bc_dt_case3 <- rbind(u2_dt_case3, bc2_dt_case3)
+
+# ggplot(p2_u_bc_dt_case3)+
+#   geom_line(aes(x=x2, y=y2, group=interaction(type, time)))
+
+
+p2_annimate_case3 <- 
+  ggplot(data=p2_u_bc_dt_case3)+
+  geom_line(aes(x=x2, y=y2, group=type, color=type))+
+  # --- initial endowment --- #
+  annotate("point", x = 4, y = 8, colour = "red", size=2)+
+  # annotate("text", x = 4.1, y = 8, label = expression(omega["2"]))+
+  # --- animation --- #
+  theme_bw() +
+  labs(
+    title = "Where are the utility maximizing bundles?",
+    x=bquote(x[2]), y=bquote(y[2])
+  )+
+  plot_theme+
+  transition_time(time) +
+  ease_aes('linear')
+```
+
+# Problem 2: Walrasian demand
+
+```{r, eval=T}
+oc1_dt <- 
+  data.table(
+    x = 2,
+    y = 0:8,
+    type="OC1"
+  )
+
+oc2_dt <- 
+  data.table(
+    x = 0:8,
+    type="OC2"
+  ) %>%
+  .[, y:= 8 - 2*x] %>%
+  .[, y:= ifelse(y<=0, 0.01, y)]
+
+oc_dt <- rbind(oc1_dt, oc2_dt)
+
+oc_curve <-
+ggplot(oc_dt)+
+  geom_line(aes(x, y, group=type, color=type), linewidth=2)+
+  scale_x_continuous(expand = c(0, 0)) + scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()+
+  plot_theme+
+  # theme_bw() +
+  theme(
+    # axis.text.x=element_blank(),
+    axis.ticks.x=element_blank(),
+    # axis.text.y=element_blank(),
+    axis.ticks.y=element_blank(),
+    legend.title=element_blank(),
+    legend.position="right",
+    plot.title = element_text(hjust = 0.5)
+    )
+```
