@@ -48,6 +48,8 @@ xaringanExtra::use_tachyons()
 
 hitting letter "o" key will give you a panel view of the slides
 
+.content-box-red[**NOTE:**]
++ Animations are embed in some slides. See the HTML file on the course canvas. 
 
 ---
 class: middle
