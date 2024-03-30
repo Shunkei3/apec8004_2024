@@ -56,7 +56,7 @@ class: middle
 
 # Outline
 
-+ Review Assignment 
++ Review Assignment 2
 + Exercise problem for utility possibilities
 
 ---
@@ -87,7 +87,7 @@ class: middle
 
 \begin{align}
 \max_{x_1, y_1} \quad & U_1(x_1, y_1)=x_1 y_1 \\
-\textrm{s.t.} \quad & p_x x_1 + p_y x_1 = 4 p_x
+\textrm{s.t.} \quad & p_x x_1 + p_y y_1 = 4 p_x
 \end{align}
 
 
@@ -119,7 +119,7 @@ class: middle
 
 \begin{aligned}
 \max_{x_1, y_1} \quad & U_1(x_1, y_1)=x_1 y_1 \\
-\textrm{s.t.} \quad & p_x x_1 + p_y x_1 = 4 p_x
+\textrm{s.t.} \quad & p_x x_1 + p_y y_1 = 4 p_x
 \end{aligned}
 
 F.O.C.
@@ -158,7 +158,7 @@ class: middle
 
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
-\textrm{s.t.} \quad & p_x x_2 + p_y x_2 = 4 p_x + 8 p_y
+\textrm{s.t.} \quad & p_x x_2 + p_y y_2 = 4 p_x + 8 p_y
 \end{aligned}
 
 
@@ -183,7 +183,7 @@ class: middle
 
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
-\textrm{s.t.} \quad & p_x x_2 + p_y x_2 = 4 p_x + 8 p_y
+\textrm{s.t.} \quad & p_x x_2 + p_y y_2 = 4 p_x + 8 p_y
 \end{aligned}
 
 .pull-left[
@@ -216,7 +216,7 @@ class: middle
 
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
-\textrm{s.t.} \quad & p_x x_2 + p_y x_2 = 4 p_x + 8 p_y
+\textrm{s.t.} \quad & p_x x_2 + p_y y_2 = 4 p_x + 8 p_y
 \end{aligned}
 
 .pull-left[
@@ -239,7 +239,7 @@ class: middle
 
 \begin{aligned}
 \max_{x_2, y_2} \quad & U_2(x_2, y_2)=2x_2+y_2 \\
-\textrm{s.t.} \quad & p_x x_2 + p_y x_2 = 4 p_x + 8 p_y
+\textrm{s.t.} \quad & p_x x_2 + p_y y_2 = 4 p_x + 8 p_y
 \end{aligned}
 
 .pull-left[

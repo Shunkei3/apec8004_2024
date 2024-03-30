@@ -99,7 +99,7 @@ p1_annimate <-
   theme_bw() +
   labs(
     title = "Where is the utility maximizing bundle?",
-    x=bquote(x[2]), y=bquote(y[2])
+    x=bquote(x[1]), y=bquote(y[1])
   )+
   # plot_theme+
   theme(
@@ -132,7 +132,7 @@ plot_opt_p1 <-
   theme_bw() +
   labs(
     title = "Where is the utility maximizing bundle?",
-    x=bquote(x[2]), y=bquote(y[2])
+    x=bquote(x[1]), y=bquote(y[1])
   )+
   xlim(0,5)+ ylim(0,5)+
   plot_theme
