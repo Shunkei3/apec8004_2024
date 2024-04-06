@@ -1,0 +1,249 @@
+---
+title: "APEC8004: Recitation 4"
+author: 
+  - "Shunkei Kakimoto" 
+header-includes:
+   - \usepackage{mathtools}
+   - \usepackage{color}
+   - \usepackage{amsmath}
+   - \usepackage{amssymb}
+   - \usepackage{tikzcd}
+   - \usepackage{stackrel}
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    css: ../xaringan-themer.css 
+    lib_dir: libs
+    nature: 
+      highlightStyle: github
+      highlightLines: true
+---
+class: middle
+
+```{r, child = '../setup.rmd', cache = FALSE}
+```
+
+```{r, include = F, cache = FALSE}
+# here::i_am("GitControlled/Recitation/1_Introduction/recitation1_slides.rmd")
+```
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+
+```{r xaringan-tachyons, echo=FALSE}
+xaringanExtra::use_tachyons()
+```
+
+# Outline
+
++ Review of the last class: What's the main point?
++ Exercise problem
+
+???
++ Since we have just started to the topic of public goods, I wanna review what we learned in the last class quickly. 
+
++ We went though lots of math an proof, in this course because Jay likes math.
++ Well, understand the math and proof are important, but, I think more important things are to understand the background like what is the problem we are working on and how to problem 
+
+---
+class: middle
+
+# Background of public good
+
+In the previous class of general equilibrium (before the midterm exam), we focused on competitive markets (the markets clear, all goods are private and no externalities, ...). 
+
+Under competitive markets, we have a very nice theorem:
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-2.ph2.mt2[
+
+**First welfare theorem**
+
+<b>Competitive markets yield Pareto efficient outcomes.</b>
+
+Put another way: In a competitive market, we let each individual consumer solely seek to maximize their own utility. The outcomes always achieve social efficiency (the size of the pie is maximized). 
+]
+
+.content-box-red[**Questions**]
+
+Is this true under the existence of public good?
+
+???
++ Let me briefly talk about the overview of the topic public good. What is the problem and what we're trying to understand. 
+
++ Now, the question is that can we apply this in the existence of public good?
+
+---
+class: middle
+
+.content-box-red[**Questions**]
+
+Is this true under the existence of public good?
+
+No. 
+
+<br>
+
+.content-box-red[**Goals**]
+
++ What is the problem preventing us to achieve the socially efficient outcome?
+  + How do public goods distort the 
+
++ Can we overcome the problem? Is there any good way (mechanism design or intervention scheme) to correct the problem?
+
+???
++ These are the main points of this topic, and we will learn these in the next couple lectures. 
+
+
+---
+class: middle
+
+# What is the Optimal Provision of Public Goods?
+
+.content-box-green[**Samuelson condition**]
+
+Interior PO allocation for public goods satisfies 
+
+$$\sum_{j} \left(\frac{\partial U_j}{\partial y}/\frac{\partial U_j}{\partial x_j} \right) = \frac{1}{g^{\prime}}$$
+
+where, $g(\cdot)$ is a production function. 
+
+
+.content-box-red[**NOTE**]
++ The Samuelson condition is necessary but not sufficient for an interior Pareto optimum.
+
+
+???
++ We started to think about what is optimal allocation of public goods that maximizing the Social-efficiency. 
++ This can be done by solving in the same way as we did to derive contract curve. Specifically, we focus on maximizing person $j$'s utility while fixing other persons' utility at some arbitrary level. Or, we can solve maximizing the social welfare function. 
+
++ Either way, we can get the condition called Samuelson condition. This is a necessary condition for an interior allocation to be PO. 
+
++ Well, this is not surprising, the Samuelson conditions are simply the first order condition of the Lagrangean, and the first order condition for maximization problem is just a necessarily condition for maximum. 
+
++ Okay, 
+
+---
+class: middle
+
+Okay, we understand the optimal level of public goods (i.e. $y^{PO}$). The question is whether this outcome can be realized though market activity.
+
+---
+class: middle
+
+
+# Voluntary-contribution equilibrium (VCE)
+
+In the market, each person $j$ solely seek to maximize their utility, taking other's contributions as given.
+
+\begin{aligned}
+\max_{x_j} \quad & U_j(x_j, y)\\
+\textrm{s.t.} \quad & x_j = \omega_j - z_j\\
+ & y \leq  g\left(z_j + \sum_{k \neq j} z_k\right)
+\end{aligned}
+
+
+.content-box-green[**Summary:**]
++ The VCE is not necessarily PO.
++ Generally, $y^{PO}>y^{VCE}$ (VCE yields underprovision of public goods)
+
+???
++ Okay, so we understand the Optimal level of Public Goods. So, 
+
++ we actually did this in game theory
+  + using cut-off strategy, we investigated an individual strategically determine their contribution to the public good
+
+
++ Summary: Private provision of public goods generally results in less than an efficient amount of the public good
+
++ Just looking at this result, it is obvious. But from the economic point of view, This is an important result. Because this shows that the economic activity in free market does not necessarily achieve socially efficient outcome. 
+
+---
+class: middle
+
+# Message from VCE
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-2.ph2.mt2[
+
+The private provision of public goods generates a special type of externality: <span style="color:blue">If one individual provides a unit of a public good, all individuals benefit</span>. 
+
+&rarr; Private provision of public goods is typically Pareto inefficient. 
+]
+
+
+.content-box-green[**Free-rider problem**]
+
+Each consumer has an incentive to enjoy the benefits of the public good provided by others while providing it insufficiently herself. 
+
+
+---
+class: middle
+
+Can we achieve socially efficient outcomes in the existence of public good?
+
+
+Theoretically, there is a market institution (e.g., super smart government) that can achieve optimality.
+
+&rarr; <span style="color:blue">Lindahl equilibrium</span>
+
+---
+class: middle
+
+Can we achieve socially efficient outcomes in the existence of public good?
+
+
+Theoretically, there is a market institution (e.g., super smart government) that can achieve optimality.
+
+&rarr; <span style="color:blue">Lindahl equilibrium </span>
+
+<br>
+
+.content-box-red[**Critical assumption for Lindahl equilibrium**]
+
+The institution knows each individual's willingness to pay for unit of public good (i.e., $P_j$).
+
+&rarr; How can we get that information?
+
++ Mechanism design
+  + Vickrey-Clark-Gloves (VCG) mechanism
+
+<br>
+
+<!-- 
++ Bergstorm-Blume-Varian 
+  + Government provision of a public good can supplant its private provision -->
+
+to be continued....
+
+---
+class: middle
+
+# Summer 2013 environment prelim
+
+Two consumers are the only members of an island economy.  They have identical preferences over two goods, a private numeraire good $x$ and a pure public good $q$.  Preferences are given by
+$$
+U_i(x_i,q) = \ln x_i + 2\ln q .
+$$
+
+Each consumer is endowed with $\omega_i=10$ of the private good, of which $x_i$ is consumed directly and the remainder $z_i = \omega_i - x_i$ is contributed to the provision of the public good.  $q$ is produced according to the simple production function $q = z_1+z_2$.
+
+a. Determine the outcome $(x_1,x_2,z_1,z_2)$, that a benevolent social planner would choose so as to maximize the unweighted sum of preferences, $W = U_1(x_1,q) + U_2(x_2,q)$.
+
+b. Find the voluntary-contribution equilibrium for this economy. Show that the VCE level of the public good, $\hat{q}$ is less than $q^*$.
+
+c. Find the Lindahl price at which the consumers, taking this price as given when selecting their contribution $z_i$, will choose the socially optimal level of contribution to the public good.
+
+---
+
+## Memo
+
+
+---
+
+## Memo
+
+
+
+
+
+

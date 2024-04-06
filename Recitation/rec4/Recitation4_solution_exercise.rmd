@@ -1,0 +1,201 @@
+---
+title: "Recitation 4: Solutions for Exercise Problem"
+author: Shunkei Kakimoto
+output:
+  pdf_document:
+    number_sections: no
+    toc: no
+    toc_depth: 3
+geometry: margin=1in
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(here)
+
+# here::i_am("")
+
+# opts_knit$set(root.dir = "")
+# opts_knit$set(root.dir = here())
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  # cache = FALSE,
+  # comment = NA,
+  message = FALSE,
+  warning = FALSE
+  # tidy = FALSE,
+  # cache.lazy = FALSE
+  #--- figure ---#
+  # dpi = 400,
+  # fig.width = 7.5,
+  # fig.height = 5,
+  # out.width = "750px",
+  # out.height = "500px"
+)
+```
+
+Let me know when you have any questions.
+
+# Summer 2013 environment prelim
+
+Two consumers are the only members of an island economy.  They have identical preferences over two goods, a private numeraire good $x$ and a pure public good $q$.  Preferences are given by
+$$
+U_i(x_i,q) = \ln x_i + 2\ln q .
+$$
+
+Each consumer is endowed with $\omega_i=10$ of the private good, of which $x_i$ is consumed directly and the remainder $z_i = \omega_i - x_i$ is contributed to the provision of the public good.  $q$ is produced according to the simple production function $q = z_1+z_2$.
+
+a. Determine the outcome $(x_1,x_2,z_1,z_2)$, that a benevolent social planner would choose so as to maximize the unweighted sum of preferences, $W = U_1(x_1,q) + U_2(x_2,q)$.
+
+b. Find the voluntary-contribution equilibrium for this economy. Show that the VCE level of the public good, $\hat{q}$ is less than $q^*$.
+
+c. Find the Lindahl price at which the consumers, taking this price as given when selecting their contribution $z_i$, will choose the socially optimal level of contribution to the public good.
+
+
+# Solution
+
+## Part a
+The aggregate endowment is $\omega=\omega_1+\omega_2=20$. The social planner's problem is to allocate this endowmnet to $x_1$ ,$x_2$, and $q$ so that the social welfare function $W=U_1(x_1, q)+U_2(x_2, q)=log x_1 + log x_2 + 4 log$ is maximized:
+
+\begin{equation*}
+\begin{aligned}
+\max_{x_1,x_2,q} \quad & W=log x_1 + log x_2 + 4 log \, q\\
+\textrm{s.t.} \quad & q = 20 - x_1 -x_2\\
+\end{aligned}
+\end{equation*}
+
+Note that $x_1>0$, $x_2>0$, and $q>0$ by the form of $U_j$. So we should have an interior solution.
+
+\begin{align*}
+ L = log x_1 + log x_2 + 4 log \, q + \lambda(20 - x_1 -x_2 - q)
+ \end{align*}
+
+F.O.Cs are
+\begin{align*}
+\frac{\partial L}{\partial x_1} &= \frac{1}{x_1} - \lambda = 0 \quad \cdots (1) \\
+\frac{\partial L}{\partial x_2} &= \frac{1}{x_2} - \lambda = 0 \quad \cdots (2) \\
+\frac{\partial L}{\partial q} &= \frac{4}{q} - \lambda = 0 \quad \cdots (3) \\
+\frac{\partial L}{\partial \lambda} &= 20 - x_1 -x_2 - q = 0 \quad \cdots (4)
+\end{align*}
+
+By the conditions (1) and (2),
+\begin{align*}
+x_2=x_1
+\end{align*}
+By the the conditions (1) and (3),
+\begin{align*}
+q =4 x_1
+\end{align*}
+Substituting these for condition (4),
+\begin{align*}
+20 - x_1 -x_1 - 4 x_1 = 0
+\end{align*}
+Thus, $x_1^{PO} = \frac{10}{3}$. Then, $x_2^{PO} = \frac{10}{3}$ and $q^{PO} = \frac{40}{3}$.
+
+In summary, the socially optimum outcome is $(x_1^{PO}, x_2^{PO}, z_1^{PO}, z_2^{PO})=(\frac{10}{3}, \frac{10}{3}, \frac{20}{3}, \frac{20}{3})$. The optimal level of public goods is $q^{PO} = \frac{40}{3}$.
+
+## Part b
+
+Consumer $i$'s ($i \in {1,2}$) problem is
+
+\begin{equation*}
+\begin{aligned}
+\max_{x_i, z_i} \quad & U_i=log x_i + 2 log \,q \\
+\textrm{s.t.} \quad
+   & x_{i} = 10 - z_i\\
+   & q = z_i + z_{-i} \\
+\end{aligned}
+\end{equation*}
+
+By incorporating the contraints into the objective function, this maximiztion problem becomes
+
+\begin{equation*}
+\begin{aligned}
+\max_{z_i} \quad & U_i=log (10 - z_i) + 2 log \, (z_i + z_{-i}) \\
+\end{aligned}
+\end{equation*}
+The first order condition for this unconstrained maximization problem is
+\begin{align*}
+- \frac{1}{10-z_i} + \frac{2}{z_i + z_{-i}} = 0
+\end{align*}
+or
+\begin{align*}
+z_i = \frac{20-z_{-i}}{3}
+\end{align*}
+(Note that this is person $i$'s response function to the other person's choice on contribution to the public goods.) This condition must hold for $i=1,2$. That is, the following must hold
+\begin{align*}
+z_1 = \frac{20-z_{2}}{3}
+z_2 = \frac{20-z_{1}}{3}
+\end{align*}
+By solving this equaltions simultaneously, we get $z_1^{VCE}=z_2^{VCE}=5$. So, $x_1^{VCE}=x_2^{VCE}=10-5=5$. 
+
+In summary, the VCE is $(x_1^{VCE}, x_2^{VCE}, z_1^{VCE}, z_2^{VCE})=(5, 5, 5, 5)$, and $q^{VCE}=z_1^{VCE}+z_2^{VCE}=10$, which is less than $q^{PO}$ as expected. 
+
+
+## Part c
+Let $p_1$ and $p_2$ be the Lindahl prices of the public good for consumer 1 and consumer 2. **Each consumer solves**,
+\begin{equation*}
+\begin{aligned}
+\max_{x_i} \quad & U_i=log x_i + 2 log \, q \\
+\textrm{s.t.} \quad & x_{i} + p_iq = 10\\
+\end{aligned}
+\end{equation*}
+Again, the solution should be interior.
+\begin{align*}
+L = log x_i + 2 log \, q + \lambda(10 - x_{i} - p_i q)
+\end{align*}
+F.O.Cs are
+\begin{align*}
+\frac{\partial L}{\partial x_i} &= \frac{1}{x_1} - \lambda = 0  \\
+\frac{\partial L}{\partial q} &= \frac{2}{q} - \lambda p_i = 0 \\
+\frac{\partial L}{\partial \lambda} &= 10 - x_{i} - p_iq
+\end{align*}
+From the first two conditions,
+\begin{align*}
+&\quad
+  \frac{1}{x_1} = \frac{1}{p_i}\cdot \frac{2}{q}\\
+\iff&\quad q = \frac{2}{p_i}x_i \quad \cdots (\ast1) \\
+\end{align*}
+Substituting this for the last F.O.C.,
+\begin{align*}
+&\quad
+  10 - x_{i} + p_i \cdot \frac{2}{p_i}x_i =0 \\
+\iff&\quad
+  x_i = \frac{10}{3}
+\end{align*}
+So, substituting this for condition $(\ast1)$, we have,
+\begin{align*}
+&\quad
+  q=\frac{2}{p_i} \cdot \frac{10}{3} \\
+\iff&\quad p_i=\frac{3}{20}q \quad \cdots (\ast2) \quad \text{(for $i=1,2$)}\\
+\end{align*}
+
+**The producer's problem is**
+\begin{equation*}
+\begin{aligned}
+\max_{q, z} \quad & p\cdot q - z \\
+\textrm{s.t.} \quad & q=z\\
+\end{aligned}
+\end{equation*}
+, where $p=p_1+p_2$ and $z=z_1+z_2$.
+\begin{align*}
+L = p\cdot q - z + \lambda(z-q)
+\end{align*}
+F.O.C.
+\begin{align*}
+\frac{\partial L}{\partial q} &= p - \lambda =0 \\
+\frac{\partial L}{\partial z} &= -1 + \lambda =0 \\
+\frac{\partial L}{\partial \lambda} &= z - q =0
+\end{align*}
+From the first two conditions, we have $p=1$, or $p_1+p_2=1$. Together with condition $(\ast 2)$,
+\begin{align*}
+&\quad
+  \frac{3}{20}q + \frac{3}{20}q = 1 \\
+\iff&\quad q = \frac{10}{3}
+\end{align*}
+
+Substituting this for condition $(\ast 2)$, we have the Lindahl price
+\begin{align*}
+p_i = \frac{1}{2} \quad \text{for $i=1,2$}
+\end{align*}
