@@ -1,0 +1,215 @@
+---
+title: "APEC8004: Recitation 5"
+author: 
+  - "Shunkei Kakimoto" 
+header-includes:
+   - \usepackage{mathtools}
+   - \usepackage{color}
+   - \usepackage{amsmath}
+   - \usepackage{amssymb}
+   - \usepackage{tikzcd}
+   - \usepackage{stackrel}
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    css: ../xaringan-themer.css 
+    lib_dir: libs
+    nature: 
+      highlightStyle: github
+      highlightLines: true
+---
+class: middle
+
+```{r, child = '../setup.rmd', cache = FALSE}
+```
+
+```{r, include = F, cache = FALSE}
+# here::i_am("GitControlled/Recitation/1_Introduction/recitation1_slides.rmd")
+```
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+
+```{r xaringan-tachyons, echo=FALSE}
+xaringanExtra::use_tachyons()
+```
+
+
+# Past prelim: Question IV.2
+
+.medium[
+Jun 2017: proof of Existence theorem I, (the question also asked to show an example that fails to have an equilibrium using a Edgeworth box)
+
+Jun 2018: **Public goods, the majority voting rule, Condorcet's paradox** 
+
+Aug 2018: State the axiom of minimal liberalism, prove Sen's theorem
+
+Jun 2019: **Public goods, PO outcomes, VCE, majority voting rule**
+
+Aug 2019: Manipulability of Borda count, Arrow's theorem including four axioms: partial proof. 
+
+Sep 2020: Arrow's theorem, the median voter theorem
+
+Jan 2021: Existence theorem I
+
+Jun 2021: Proof for Walras's law, the First Welfare theorem, Sen's theorem
+
+Sep 2021: Arrow's theorem , state it including the four axioms, and provide a proof
+
+Jun 2022: Sen's theorem, proof of the theorem, and some application
+
+Sep 2022: Partial proof of Arrow's theorem, the Gibbard-Satterthwaite theorem
+
+Jun 2023: **Public goods: PO outcomes vs VCE**
+
+Sep 2023:  Manipulability of Borda count, partial proof for Arrow's theorem, 
+]
+
+
+
+
+---
+class: middle
+
+.content-box-green[**Advice for prelim**]
+
+1. If you're going to choose Question IV.1 (GE problem), you might want to practice lots of GE problems (past homework assignments, practice problems in the class notes, prelim) and proofs of Walras's law, First Welfare theorem, Existence theorem I. 
+
+2. If you're going to choose Question IV.2 (Public goods and Social choice), you might want to practice proofs for Arrow's theorem, Sen's theorem...
+
+<br>
+
+I guess you cannot avoid practicing proofs....
+
+<br>
+
+<!-- <span style="color:blue">You don't need to exactly reproduce the proofs as they are. Instead of memorizing (of course,  memorization is required some extent), understand the flow of the logical arguments.</span> -->
+
+
+
+
+---
+class: middle
+
+# Key points: Public goods
+
+.content-box-green[**Interior PO provision of public goods**]
+
++ A social planner maximize the social welfare function 
+
+&rarr; Samuelson condition
+
+.content-box-green[**VCE (Voluntary Contribution Equilibrium)**]
+
++ Equilibrium outcome of private provision of public goods 
++ Each individual maximize their own utility 
++ Free rider problem 
+
+
+.content-box-green[**Lindahl Equilibrium**]
+
++ In theory, Lindahl pricing (Lindahl taxation) leads to an PO provision of public goods
++ But it is difficult to elicit utility from each individual, therefore it is implausible that we can use Lindahl pricing scheme (personalized price for public goods). People always have an incentive to make a lie!
+
+
+
+
+---
+class: middle
+
+# Review: Public goods
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-2.ph2.mt2[
+**Vickrey-Clarke-Groves (VCG) mechanism**
+
+1. <b>Decision rule</b> (i.e., whether to implement the project)
+\begin{equation}
+x(\omega) =
+    \begin{cases}
+      1 & \text{if } \sum_{j}\omega_j \ge 0 \\
+      0 & \text{otherwise}
+    \end{cases}       
+\end{equation}
+
+2. <b>Transfer scheme</b> (i.e., collect tax from pivotal individuals)
+
+\begin{equation}
+t_j(\omega) =
+    \begin{cases}
+      -|\sum_{k \neq j} \omega_k| & \text{if } (\sum_{k \neq j} \omega_k)(\sum_j \omega_j) <0 \\
+      0 & \text{otherwise}
+    \end{cases}       
+\end{equation}
+]
+
+.content-box-green[**Key point**]
+
++ Assumption: People's preferences are quasi-linear. 
++ Telling the truth of net value of the project is (weakly) dominant strategy for people.
++ The problem is that the collected VCG taxes are  
+
+
+
+---
+class: middle
+## 2021 Final, Problem I.2
+
+A community of five people must decide whether to build a new school at a cost of $C$. Each person will be assessed an equal share $\color{blue}{C/5}$ of the cost of construction if the school is built. Each person $j$ has a true valuation $\color{blue}{v_j}$ of the school, *net* of their cost share. A planner solicits valuation reports from the five citizens; $\color{blue}{w_j}$ denotes $j$'s reported net valuation. Suppose agents 2 through 5 report $\color{blue}{w_{-1} = (w_2, ..., w_5) = (-12, 20, -8, -5)}$, and that $\color{blue}{v_1 = 7}$. 
+
+.content-box-green[**Question**]
+
+Define the Vickrey-Clarke-Groves mechanism, including both the criterion for the binary public decision and the associated incentive tax scheme.  Show reporting $\omega_1=v_1$ is (weakly) dominant strategy for person 1. Is person 1 pivotal?
+
+
+
+---
+
+class: top 
+
+# MEMO
+
+
+---
+class: top
+
+# MEMO
+
+---
+class: middle
+
+# 2023 Final Q2 
+
+A public project is under consideration, for a town with a population of <span style="color:blue">six</span>. Let $\color{blue}{v_i}$ denote person i's true *net* valuations of the project, which means their true valuation less their share of the cost if the project is adopted. The vector of true valuations is
+
+$$\color{blule}{\mathbf{v}=(150,30,-200, 325,-250,-80)}$$
+
+Voters report a valuation $\color{blue}{w_i}$, which does not need to be the same as their $v_i$.
+
+a. Determine the outcome that will result if everyone reports their true valuation: $\color{blue}{w_i = v_i}$. This will include the binary outcome (whether the project is adopted or not) as well as the vector of VCG tax amounts, the $\color{blue}{t_i}$ for each.
+
+
+b. Now suppose that the VCG tax revenue is returned as refunds, in equal portions. That is, each voter receives a refund 
+of 
+
+$$R_i = \frac{\sum_i t_i}{6}$$
+
+Describe how, assuming everyone else reports truthfully, one voter can now gain by reporting
+some $w_i \neq v_i$.
+
+
+---
+class: middle
+
+# Bergstrom-Blume-Varian
+
+.content-box-green[**Main point**] We know the private provision of public goods (VCE) is inefficient. <span style="color:blue">Suppose that both private and public goods are normal</span>. BBV theorems say that private provision of public goods can be increased through wealth distribution.
+
+
+
+
+
+
+
+
+
