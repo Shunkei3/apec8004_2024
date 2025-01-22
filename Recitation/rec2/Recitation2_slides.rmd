@@ -60,13 +60,7 @@ The midterm is on <span style="color:blue">Apr 2nd (Tue)</span>.
 The topic is general equilibrium. 
 
 
-???
-+ Just a reminder, the midterm is on Apr 2nd, Tuesday. The topic is general equilibrium like you practiced with this week's assignment. 
 
-+ This time, unlike Steve, Jay is relatively strict about exam time, so I recommend that you think about how to allocate your time. 
-
-
-+ Again, you have options, if you understand the proof of Walras's law, 1st welfare theorem, and existence theorem under the assumption of strict convex preferences, then you can choose problems involving proof. Otherwise, I guess you need to solve four different GE problems. Some of them might be tricky. So, be prepared. 
 
  
 
@@ -101,12 +95,7 @@ For this type of question, you have several approaches:
 
 **Approach 4**: Argue that any movement away from the equilibrium makes someone worse off. 
 
-
-???
-+ Some questions in assignment 1 asked to check whether the derived Walrasian equilibrium is PO. I received some questions from some of you, so let me clarify this point. 
-
-
-+ There are several approaches. 
+ 
 
 ---
 class: middle
@@ -115,17 +104,7 @@ class: middle
 
 *Practice makes perfect*
 
-???
-+ I want to do lots of practice problems with you guys. Because, first of all, of course,  if you practice more, then you can learn lots of variations of general equilibrium problems, which in turn will be helpful for you to understand the concepts of 1st, 2nd welfare theorem, and the existence theorems.   
 
-+ Second, some general equilibrium problems in the exam or prelim are tricky, if you haven't seen the similar problem, it might take more time. This is an especially big problem in the exam and prelim.   
-
-+ I recommend you go through all the problems in the Jay's textbook. I did that last year. 
-+ Maybe you don't have time to work on these problems but you should do them as least once before the prelim. Actually, most of the problems in this textbooks are from past prelim exams. So, you can expect a similar difficulty level of problems will be asked in the prelim. 
-
-+ One thing that I wanted to mention is that even if you decided to commit to not doing the proofs, you still need to know about the theorem. For example, what is the strong form of the Walras's Law, and in what condition do they hold. 
-
-+ For example, in what condition, we need to use 1st welfare theorem? What about 2nd welfare theorem? (First of all, preferences have to satisfy continuous, convex, and strictly monotone. Also, 2nd welfare theorem is only applicable to interior allocations.)
 
 
 ---
@@ -215,9 +194,7 @@ Consider the following specific $2 \times 2$ competitive exchange economy, with 
 
 2. True or False: This economy has a Walrasian equilibrium? If true, find the equilibrium price vector and allocation. If false, explain why the equilibrium does not exist. 
 ]
-
-???
-+ Here is the exercise problem I want to do today. 
+ 
 
 ---
 class: top
@@ -262,14 +239,7 @@ Given the feasibility constrains and a fixed level of indifference curve for con
 
 &rarr; Find consumer 1's indifference curve of $x_1y_1$  -->
 
-???
-+ Okay the first question is to derive the set of PO allocations. 
-+ For the first question, the problem can be mathematically written like this. We can solve this problem mathematically. 
 
-+ But, this time, since we have a strong weapon called edgeworth box, which is a great graphical device to describe 2 by 2 exchange economy. So, let's solve this problem with the edgeworth box.
-
-+ If we have differentiable utility functions, then it's easy. 
-+ But sometime, we have utility function which is not differentiable. In that case, we can rely on have a strong weapon called edgeworth box, which is a great graphical device to describe 2 by 2 exchange economy. 
 
 
 ---

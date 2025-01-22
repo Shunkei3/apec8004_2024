@@ -69,12 +69,7 @@ class: middle -->
   + Due on Friday 3 pm
   + Submit on Canvas by Friday 3 pm
 
-???
-+ Alright, let's get started. 
-+ Now, you guys passed the peak of this Micro series. I would guess that game theory is the most difficult one. For the last half of this semester, we are gonna learn about welfare economics and Social choice. 
 
-
-+ I have listed temporary office hours. But, today I want to discuss what time works best for you all.  
 
 ---
 class: middle
@@ -161,20 +156,7 @@ Some proofs have been asked in the past prelims:
 <b>Existence of equilibrium (strict convexity case)</b>: 2017 June Question IV.2, 2018 June Question IV.2, 2021 January Question IV.1
 
 
-???
-+ In this slide, I listed some theorems that have been asked in past prelims. 
-+ We will learn a lots of theorems and proofs in this class, and some of them other than listed here have been asked in the past prelims as well. 
-+ Typically, in the prelims, you can choose problems. 
-+ Specifically, there are for sections, consumer theory, production theory, game theory, and social choice and welfare. Each section, you can choose to solve one problem from two. In the section of social choice and welfare, typically, it consists of the problem about general equilibrium, and social choice. 
-+ If some proofs is asked in general equilibrium, then you end up choosing the other problem related to social choice. So, it's totally up to you whether you study proofs or not. 
 
-+ What I want to say is that you can avoid the problems related to proofs. Why? If proof is asked, then it is a luck problem. For example, proof of the 1st welfare theorem is not that hard and once you understand the logic and process, you can answer that question for sure. 
-+ But, as my personal opinion, I recommend that you go through those proofs. 
-
-+ 
-
-+ In the exam, you might be asked to prove some theorems. It is usual that you have options. You can choose to the problem involving proofs or you can choose a problem that does not involve proofs. 
-+ But, 
 
 
 ---
@@ -248,10 +230,7 @@ MRS \text{ of } y \text{ for } x
 
 <span style="color:blue">That is, at a given level of $y$, every indifference curve will have the same slope regardless of the level of $x$.</span>
 
-???
-+ Okay, with this quasilinear utility function, commodity $y$ is free from income effect? Why? The reason is the following. 
 
-+ As you can see, calculating the marginal rate of substitution of y for x, in other words, the amount of commodity $y$ which a consumer is willing to give up for one unit more of good $x$, it does not depend on the level of $x$. 
 
 ---
 class: middle

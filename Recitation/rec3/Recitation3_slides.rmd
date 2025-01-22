@@ -104,9 +104,7 @@ animate(p1_annimate, fps = 20, duration = 5)
 ```
 ]
 
-???
-+ To find demand for each consumer, first we set up utility maximization problem for each consumer. 
-+ This utility problem says that find 
+
 
 ---
 class: middle
@@ -145,11 +143,7 @@ plot_opt_p1
 ```
 ]
 
-???
-+ The marginal rate of substitution is always negative because it is measuring the rate at which someone is willing to give up some amount of one good in exchange for gaining some amount of another good.
 
-+ Cobb-Douglas or quasi-linear utility functions have a interior solution. 
-  + Quasi-linear utility functions have interior if prices are strictly positive
 
 ---
 class: middle
@@ -174,9 +168,7 @@ Linear utility functions represent <span style="color:blue">perfect substitute</
 If you see indifference curves which intersect with x or/and y axis, carefully think about in what condition (the price ratio) U-max solution occurs at the boundary.  
 
 
-???
-+ Unlike nice 
-+ MRS (slope of the indifference curve) is -2. This means that, consumer 2 is always willing to give up 2 units of good y in exchange for additional unit of good x to remain indifferent. 
+
 
 ---
 class: middle
